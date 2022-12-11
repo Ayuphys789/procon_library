@@ -1,4 +1,4 @@
-//Nが素数かどうか√Nで判定
+//Nが素数かどうかO(√N)で判定
 
 #include <iostream>
 using namespace std;
