@@ -6,7 +6,3 @@ ll modPow(ll x, ll a) {
   ll t = modPow(x, a / 2);
   return (t * t) % MOD;
 }
-
-ll modInv(ll x) {
-  return modPow(x, MOD - 2);
-}
