@@ -1,7 +1,8 @@
 //(N^P)%modをO(logN)で計算
 
-#include<bits/stdc++.h?
+#include<bits/stdc++.h>
 using namespace std;
+typedef long long ll;
 
 ll modPow(ll x, ll a) {
   if (a == 1) return x;
