@@ -17,9 +17,12 @@ const ll MOD = 998244353;
 const ll dx[4] = {0, 1, 0, -1};
 const ll dy[4] = {1, 0, -1, 0};
 
-ll modPow(ll x, ll a) {
-  if (a == 1) return x;
-  if (a % 2) return (x * modPow(x, a - 1)) % MOD;
+ll modPow(ll x, ll a)
+{
+  if (a == 1)
+    return x;
+  if (a % 2)
+    return (x * modPow(x, a - 1)) % MOD;
   ll t = modPow(x, a / 2);
   return (t * t) % MOD;
 }
