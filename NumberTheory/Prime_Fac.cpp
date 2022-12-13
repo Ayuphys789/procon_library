@@ -17,21 +17,26 @@ const ll MOD = 998244353;
 const ll dx[4] = {0, 1, 0, -1};
 const ll dy[4] = {1, 0, -1, 0};
 
-vector<pair<ll,ll>> Prime_Fac(long long N) {
-    vector<pair<ll,ll>> res;
+vector<pair<ll, ll>> Prime_Fac(long long N)
+{
+    vector<pair<ll, ll>> res;
     ll N2 = N;
-    for (ll i = 2; i * i <= N; ++i) {
-        if (N2 % i == 0) {
+    for (ll i = 2; i * i <= N; ++i)
+    {
+        if (N2 % i == 0)
+        {
             ll cnt = 0;
-            while (N2 % i == 0) {
+            while (N2 % i == 0)
+            {
                 N2 /= i;
                 cnt++;
             }
-            res.push_back({ i,cnt });
+            res.push_back({i, cnt});
         }
     }
-    if (N2 * N2 > N) {
-        res.push_back({ N2,1 });
+    if (N2 * N2 > N)
+    {
+        res.push_back({N2, 1});
     }
     return res;
 }
