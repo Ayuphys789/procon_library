@@ -33,7 +33,7 @@ struct Range_Minimum_Query
             x *= 2;
         }
         n = x;
-        dat.resize(n * 2 - 1, 2147483647);
+        dat.resize(n * 2 - 1, inf);
     }
 
     void update(int i, T x)
