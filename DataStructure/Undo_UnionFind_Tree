@@ -35,7 +35,7 @@ const ll dy[4] = {1, 0, -1, 0};
 struct UnionFind
 {
     vector<ll> par;
-    // x自身が根ならsizeの逆数,そうでないとき親
+    // x自身が根ならsizeの負数,そうでないとき親
     stack<pair<ll, ll>> history;
 
     UnionFind(ll n) : par(n, -1) {}
