@@ -65,7 +65,7 @@ struct UnionFind
         return true;
     }
 
-    int size(int x)
+    ll size(ll x)
     {
         return siz[root(x)];
     }
