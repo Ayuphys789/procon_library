@@ -22,7 +22,6 @@ typedef long long ll;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
 #define REP(i, n) for (ll i = 1; i <= (ll)(n); i++)
 #define FOR(i, a, b) for (ll i = a; i <= b; i++)
-#define bit(x, i) (((x) >> (i)) & 1)
 #define all(x) x.begin(), x.end()
 #define fcout cout << fixed << setprecision(15)
 #define PI 3.1415926535897932384626433832795028841971693993751058209749445923078160628620899
