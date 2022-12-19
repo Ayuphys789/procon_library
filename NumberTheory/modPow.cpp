@@ -19,6 +19,8 @@ const ll dy[4] = {1, 0, -1, 0};
 
 ll modPow(ll x, ll a)
 {
+  if (a == 0)
+    return 1;
   if (a == 1)
     return x;
   if (a % 2)
