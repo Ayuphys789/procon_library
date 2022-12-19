@@ -37,7 +37,7 @@ struct Binary_Indexed_Tree
     ll n;
     vector<T> bit[2];
     Binary_Indexed_Tree(ll n_) { init(n_); }
-    void init(ll n_)
+    void init(ll n_) // 1-indexed, n+1まで
     {
         n = n_ + 2;
         for (int p = 0; p < 2; p++)
@@ -52,7 +52,7 @@ struct Binary_Indexed_Tree
         }
     }
 
-    void add(ll left, ll right, T x)
+    void add(ll left, ll right, T x) // add x to [left, right]
     {
         add_sub(0, left, -x * (left - 1));
         add_sub(0, right + 1, x * right);
@@ -70,7 +70,7 @@ struct Binary_Indexed_Tree
         return s;
     }
 
-    T sum(ll i)
+    T sum(ll i) // sum of [1,i]
     {
         return sum_sub(0, i) + sum_sub(1, i) * i;
     }
