@@ -36,8 +36,8 @@ struct Binary_Indexed_Tree
 {
     ll n;
     vector<T> bit;
-    BIT(ll n_) : n(n_ + 1), bit(n, 0) {}
-
+    BIT(ll n_) : n(n_ + 1), bit(n, 0) {} //1-indexed
+    
     void add(ll i, T x)
     {
         for (ll id = i; id < n; id += (id & -id))
@@ -45,7 +45,8 @@ struct Binary_Indexed_Tree
             bit[id] += x;
         }
     }
-
+    
+    // sum of [1,i]
     T sum(ll i)
     {
         T s(0);
