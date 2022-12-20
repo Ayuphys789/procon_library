@@ -32,12 +32,12 @@ const ll dx[4] = {0, 1, 0, -1};
 const ll dy[4] = {1, 0, -1, 0};
 
 template <typename T>
-struct Binary_Indexed_Tree
+struct Binary_Indexed_Tree // 1-indexed, [left,right]
 {
     ll n;
     vector<T> bit[2];
     Binary_Indexed_Tree(ll n_) { init(n_); }
-    void init(ll n_) // 1-indexed, n+1まで
+    void init(ll n_)
     {
         n = n_ + 2;
         for (int p = 0; p < 2; p++)
@@ -52,7 +52,7 @@ struct Binary_Indexed_Tree
         }
     }
 
-    void add(ll left, ll right, T x) // add x to [left, right]
+    void add(ll left, ll right, T x)
     {
         add_sub(0, left, -x * (left - 1));
         add_sub(0, right + 1, x * right);
@@ -70,7 +70,7 @@ struct Binary_Indexed_Tree
         return s;
     }
 
-    T sum(ll i) // sum of [1,i]
+    T sum(ll i)
     {
         return sum_sub(0, i) + sum_sub(1, i) * i;
     }
