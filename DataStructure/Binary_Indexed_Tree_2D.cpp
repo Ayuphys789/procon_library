@@ -47,7 +47,7 @@ struct Binary_Indexed_Tree_2D // 1-indexed, 2-dimensions
 
     void add(ll p, ll q, T x)
     {
-        for (ll i = p; p < h; p += (p & -p))
+        for (ll i = p; i < h; i += (i & -i))
             for (ll j = q; j < w; j += (j & -j))
                 bit[i][j] += x;
     }
@@ -55,8 +55,8 @@ struct Binary_Indexed_Tree_2D // 1-indexed, 2-dimensions
     T sum(ll p, ll q) // [1, p] ∧ [1, q]
     {
         T s(0);
-        for (ll i = p; p > 0; p -= (p & -p))
-            for (ll j = q; j > 0; j -= (j & -j))
+        for (ll i = p; i > 0; i -= (i & -i))
+            for (ll j = q; j> 0; j -= (j & -j))
                 s += bit[i][j];
         return s;
     }
