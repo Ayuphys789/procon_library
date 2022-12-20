@@ -46,7 +46,7 @@ struct Binary_Indexed_Tree // 1-indexed, [1,x]
         }
     }
 
-    T sum(ll i)
+    T sum(ll i) // [1, i]
     {
         T s(0);
         for (ll id = i; id > 0; id -= (id & -id))
@@ -54,6 +54,11 @@ struct Binary_Indexed_Tree // 1-indexed, [1,x]
             s += bit[id];
         }
         return s;
+    }
+
+    T query_sum(ll i, ll j) // [i, j]
+    {
+        return sum(j) - sum(i - 1);
     }
 
     ll Inversion(vector<ll> q) // 転倒数の計算
