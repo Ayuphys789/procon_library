@@ -36,7 +36,7 @@ struct Binary_Indexed_Tree
 {
     ll n;
     vector<T> bit;
-    BIT(ll n_) : n(n_ + 1), bit(n, 0) {} //1-indexed
+    B(ll n_) : n(n_ + 1), bit(n, 0) {} //1-indexed
     
     void add(ll i, T x)
     {
