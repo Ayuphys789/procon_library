@@ -1,5 +1,5 @@
 
-// Binary Indexed Tree
+// Binary Indexed Tree (+ 転倒数)
 
 #include <iostream>
 #include <algorithm>
@@ -32,12 +32,12 @@ const ll dx[4] = {0, 1, 0, -1};
 const ll dy[4] = {1, 0, -1, 0};
 
 template <typename T>
-struct Binary_Indexed_Tree
+struct Binary_Indexed_Tree // 1-indexed, [1,x]
 {
     ll n;
     vector<T> bit;
-    B(ll n_) : n(n_ + 1), bit(n, 0) {} //1-indexed
-    
+    Binary_Indexed_Tree(ll n_) : n(n_ + 1), bit(n, 0) {}
+
     void add(ll i, T x)
     {
         for (ll id = i; id < n; id += (id & -id))
@@ -45,8 +45,7 @@ struct Binary_Indexed_Tree
             bit[id] += x;
         }
     }
-    
-    // sum of [1,i]
+
     T sum(ll i)
     {
         T s(0);
@@ -55,5 +54,16 @@ struct Binary_Indexed_Tree
             s += bit[id];
         }
         return s;
+    }
+
+    ll Inversion(vector<ll> q) // 転倒数の計算
+    {
+        ll res = 0, len = q.size();
+        REP(i, len)
+        {
+            res += (i - 1 - sum(q[i - 1]));
+            add(q[i - 1], 1);
+        }
+        return res;
     }
 };
