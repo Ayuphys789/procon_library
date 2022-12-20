@@ -34,7 +34,7 @@ const ll dx[4] = {0, 1, 0, -1};
 const ll dy[4] = {1, 0, -1, 0};
 
 template <typename T>
-struct Binary_Indexed_Tree
+struct Binary_Indexed_Tree // 1-indexed, [1,x]
 {
     ll n;
     vector<T> bit;
@@ -82,7 +82,7 @@ struct Binary_Indexed_Tree
     }
 };
 
-int main(void)
+int main(void) // X に 1 を add して LB することで K 番目に小さい数を求める
 {
     ll Q;
     cin >> Q;
