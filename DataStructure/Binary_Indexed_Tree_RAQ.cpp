@@ -75,7 +75,7 @@ struct Binary_Indexed_Tree // 1-indexed, [left,right]
         return sum_sub(0, i) + sum_sub(1, i) * i;
     }
     
-    T query(ll i, ll j) // [i, j]
+    T query_sum(ll i, ll j) // [i, j]
     {
         return sum(j) - sum(i - 1);
     }
