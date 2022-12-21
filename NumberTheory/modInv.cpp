@@ -1,13 +1,27 @@
 
 // x の MOD での逆元を求める
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
+#include <cmath>
+#include <vector>
+#include <string>
+#include <iomanip>
+#include <functional>
+#include <deque>
+#include <stack>
+#include <queue>
+#include <bitset>
+#include <map>
+#include <set>
+#include <unordered_set>
+#include <numeric>
+#include <array>
 using namespace std;
 typedef long long ll;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
 #define REP(i, n) for (ll i = 1; i <= (ll)(n); i++)
 #define FOR(i, a, b) for (ll i = a; i <= b; i++)
-#define bit(x, i) (((x) >> (i)) & 1)
 #define all(x) x.begin(), x.end()
 #define fcout cout << fixed << setprecision(15)
 #define PI 3.1415926535897932384626433832795028841971693993751058209749445923078160628620899
@@ -19,6 +33,8 @@ const ll dy[4] = {1, 0, -1, 0};
 
 ll modPow(ll x, ll a)
 {
+  if (a == 0)
+    return 1;
   if (a == 1)
     return x;
   if (a % 2)
