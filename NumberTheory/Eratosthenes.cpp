@@ -1,5 +1,5 @@
 
-// 1 以上 N 以下の整数が素数かどうか判定 O(NloglogN)
+// O(NloglogN) で前計算 O(1) で K が素数かどうか判定,O(logK) で K の素因数列挙
 
 #include <iostream>
 #include <algorithm>
@@ -37,6 +37,7 @@ const ll MOD = 998244353;
 const ll dx[4] = {0, 1, 0, -1};
 const ll dy[4] = {1, 0, -1, 0};
 
+// O(NloglogN) で前計算した後 O(1) で K が素数かどうか判定
 vector<bool> Eratosthenes(long long n)
 {
     vector<bool> isPrime(n + 1, 1);
@@ -48,6 +49,24 @@ vector<bool> Eratosthenes(long long n)
         for (long long q = p * 2; q <= n; q += p)
         {
             isPrime[q] = 0;
+        }
+    }
+    return isPrime;
+}
+
+// O(NloglogN) で前計算した後 O(logK) で K の素因数列挙
+vector<int> Eratosthenes(int n)
+{
+    vector<int> isPrime(n + 1, -1);
+    isPrime[0] = 0;
+    isPrime[1] = 1;
+    for (int p = 2; p <= n; p++)
+    {
+        if (isPrime[p] != -1)
+            continue;
+        for (long long q = p; q <= n; q += p)
+        {
+            isPrime[q] = p;
         }
     }
     return isPrime;
