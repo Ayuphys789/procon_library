@@ -1,6 +1,11 @@
 
 // x の MOD での逆元を求める
 
+/*
+verified:
+https://codeforces.com/contest/1768/submission/188108419
+*/
+
 #include <iostream>
 #include <algorithm>
 #include <cmath>
@@ -31,19 +36,19 @@ const ll MOD = 998244353;
 const ll dx[4] = {0, 1, 0, -1};
 const ll dy[4] = {1, 0, -1, 0};
 
-ll modPow(ll x, ll a)
+long long modPow(long long x, long long a, ll mod)
 {
   if (a == 0)
     return 1;
   if (a == 1)
     return x;
   if (a % 2)
-    return (x * modPow(x, a - 1)) % MOD;
-  ll t = modPow(x, a / 2);
-  return (t * t) % MOD;
+    return (x * modPow(x, a - 1, mod)) % mod;
+  long long t = modPow(x, a / 2, mod);
+  return (t * t) % mod;
 }
 
-ll modInv(ll x)
+long long modInv(long long x, long long mod)
 {
-  return modPow(x, MOD - 2);
+  return modPow(x, mod - 2, mod);
 }
