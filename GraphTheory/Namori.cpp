@@ -115,15 +115,15 @@ struct Namori
     vector<int> in;
     Namori(const G &g) : g(g), in(g.size(), 0) {}
 
-    void decomposition(vector<ll> &loop, vector<vector<ll>> &forest)
+    void decomposition(vector<int> &loop, vector<vector<int>> &forest)
     {
-        ll n = in.size();
-        for (ll i = 0; i < n; i++)
+        int n = in.size();
+        for (int i = 0; i < n; i++)
         {
             in[i] = g[i].size();
         }
         forest.resize(n);
-        queue<ll> q;
+        queue<int> q;
         vector<bool> v(n, 0);
         for (ll i = 0; i < n; i++)
         {
@@ -135,7 +135,7 @@ struct Namori
         }
         while (!q.empty())
         {
-            ll idx = q.front();
+            int idx = q.front();
             q.pop();
             for (auto &to : g[idx])
             {
@@ -150,7 +150,7 @@ struct Namori
                 v[to] = 1;
             }
         }
-        function<void(ll)> dfs = [&](ll idx) -> void
+        function<void(int)> dfs = [&](int idx) -> void
         {
             loop.push_back(idx);
             for (auto &to : g[idx])
@@ -176,13 +176,13 @@ int main(void)
 {
     std::cin.tie(nullptr);
     std::ios_base::sync_with_stdio(false);
-    ll N;
+    int N;
     cin >> N;
     Graph<> G(N);
     G.read(N);
     Namori<Graph<int>> CQ(G);
-    vector<ll> loop;
-    vector<vector<ll>> forest;
+    vector<int> loop;
+    vector<vector<int>> forest;
     CQ.decomposition(loop, forest);
     /*
     for (auto &to : loop)
@@ -206,11 +206,11 @@ int main(void)
     {
         cnct(i, i);
     }
-    ll Q;
+    int Q;
     cin >> Q;
     while (Q--)
     {
-        ll X, Y;
+        int X, Y;
         cin >> X >> Y;
         X--;
         Y--;
