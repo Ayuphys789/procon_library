@@ -1,6 +1,11 @@
 
 // グラフテンプレート
 
+/*
+verified:
+https://atcoder.jp/contests/abc284/submissions/37857722
+*/
+
 #include <iostream>
 #include <algorithm>
 #include <cmath>
@@ -97,3 +102,33 @@ struct Graph
 
 template <typename T = int>
 using Edges = vector<Edge<T>>;
+
+int main(void)
+{
+    std::cin.tie(nullptr);
+    std::ios_base::sync_with_stdio(false);
+    int N, M;
+    cin >> N >> M;
+    Graph<int> BK(N);
+    BK.read(M);
+    vector<bool> us;
+    us.assign(N, 0);
+    function<int(int)> dfs = [&](int k) -> int
+    {
+        us[k] = 1;
+        int ret = 1;
+        for (auto &e : BK.g[k])
+        {
+            int p = e.to;
+            if (us[p])
+                continue;
+            ret += dfs(p);
+            if (ret >= 1000000)
+                break;
+        }
+        us[k] = 0;
+        return min(ret, 1000000);
+    };
+    cout << dfs(0) << endl;
+    return 0;
+}
