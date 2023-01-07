@@ -1,7 +1,27 @@
 
 // x ^ a を MOD で割った余りを O(logN) で求める
 
-#include <bits/stdc++.h>
+/*
+verified:
+https://codeforces.com/contest/1768/submission/188108419
+*/
+
+#include <iostream>
+#include <algorithm>
+#include <cmath>
+#include <vector>
+#include <string>
+#include <iomanip>
+#include <functional>
+#include <deque>
+#include <stack>
+#include <queue>
+#include <bitset>
+#include <map>
+#include <set>
+#include <unordered_set>
+#include <numeric>
+#include <array>
 using namespace std;
 typedef long long ll;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
@@ -17,14 +37,14 @@ const ll MOD = 998244353;
 const ll dx[4] = {0, 1, 0, -1};
 const ll dy[4] = {1, 0, -1, 0};
 
-ll modPow(ll x, ll a)
+long long modPow(long long x, long long a, ll mod)
 {
   if (a == 0)
     return 1;
   if (a == 1)
     return x;
   if (a % 2)
-    return (x * modPow(x, a - 1)) % MOD;
-  ll t = modPow(x, a / 2);
-  return (t * t) % MOD;
+    return (x * modPow(x, a - 1, mod)) % mod;
+  long long t = modPow(x, a / 2, mod);
+  return (t * t) % mod;
 }
